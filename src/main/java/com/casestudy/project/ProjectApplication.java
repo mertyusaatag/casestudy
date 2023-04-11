@@ -27,7 +27,7 @@ public class ProjectApplication implements CommandLineRunner {
 	public void inserter() throws IOException, ParseException {
 		JSONParser jsonParser = new JSONParser();
 
-		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("C:\\Users\\m00836492\\Desktop\\project\\src\\main\\java\\com\\casestudy\\project\\MovieJson.txt"));
+		JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("src/main/java/com/casestudy/project/MovieJson.txt"));
 
 		for(Object object : jsonArray) {
 			JSONObject record = (JSONObject) object;
