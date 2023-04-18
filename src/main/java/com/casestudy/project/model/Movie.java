@@ -40,4 +40,18 @@ public class Movie {
     private Boolean comingSoon;
     private String released;
     private String actors;
+
+    public Movie(String title2, String type, String year, String director) {
+        this.title = title2;
+        this.type = type;
+        this.years = year;
+        this.director = director;
+    }
+    public Movie(String id, String title, String year, String director,String type) {
+        this.id = id;
+        this.title = title;
+        this.years = year;
+        this.director = director;
+        this.type = type;
+    }
 }

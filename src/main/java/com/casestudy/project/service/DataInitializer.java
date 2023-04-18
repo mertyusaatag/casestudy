@@ -5,16 +5,23 @@ import com.casestudy.project.repository.MovieRepository;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.springframework.stereotype.Service;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
-import java.io.IOException;
 
-@Service
-public class JsonParserService {
+@Component
+public class DataInitializer implements CommandLineRunner {
 
-    public static void jsonParser(MovieRepository movieRepository) throws IOException, ParseException {
+    private final MovieRepository movieRepository;
+
+    public DataInitializer(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
+    }
+
+
+    @Override
+    public void run(String... args) throws Exception {
         JSONParser jsonParser = new JSONParser();
 
         JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("src/main/java/com/casestudy/project/MovieJson.txt"));
@@ -47,5 +54,4 @@ public class JsonParserService {
             movieRepository.save(movie);
         }
     }
-
 }

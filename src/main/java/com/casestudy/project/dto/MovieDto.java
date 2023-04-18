@@ -1,11 +1,19 @@
 package com.casestudy.project.dto;
 
-import lombok.Builder;
-import lombok.Data;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class MovieDto {
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID" , strategy = "org.hibernate.id.UUIDGenerator")
+    private String id;
     private String title;
     private String years;
     private String rated;
@@ -26,4 +34,6 @@ public class MovieDto {
     private Boolean comingSoon;
     private String released;
     private String actors;
+
+
 }

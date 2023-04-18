@@ -6,18 +6,13 @@ import com.casestudy.project.dto.requests.CreateMovieRequest;
 import com.casestudy.project.dto.requests.DeleteByTitleAndYearRequest;
 import com.casestudy.project.dto.requests.FilterRequest;
 import com.casestudy.project.dto.requests.UpdateMovieRequest;
-import com.casestudy.project.exception.GeneralExceptionHandler;
 import com.casestudy.project.exception.NotFoundException;
 import com.casestudy.project.model.Movie;
 import com.casestudy.project.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static com.casestudy.project.service.FuzzySearch.diffChecker;
 
@@ -48,7 +43,7 @@ public class MovieService {
         return movieConverter.toList(movies);
     }
 
-    private Movie findMovieById(String id)
+    public Movie findMovieById(String id)
     {
        return movieRepository.findById(id)
                 .orElseThrow(()-> new NotFoundException("Account not found"));
