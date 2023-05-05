@@ -1,0 +1,12 @@
+
+.messi:hover {
+    scale: 1.01;
+}
+
+.ronaldo {
+    filter: grayscale(0.7);
+}
+
+.ronaldo:hover {
+    filter: grayscale(0);
+}
