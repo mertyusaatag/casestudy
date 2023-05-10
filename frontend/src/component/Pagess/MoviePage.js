@@ -1,10 +1,10 @@
 
 import React, {useEffect} from "react";
-import MovieCard from "./MovieCard";
+import MovieCard from "../MovieCard";
 import Container from "react-bootstrap/Container";
 import {Col, Image, Row} from "react-bootstrap";
 import {useDispatch, useSelector} from "react-redux";
-import {fetchMovies} from "../store/panel";
+import {fetchMovies} from "../../store/panel";
 
 
 

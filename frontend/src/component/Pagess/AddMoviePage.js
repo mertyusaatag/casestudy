@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, Col, Row} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import '../css/card.css'
+import '../../css/card.css'
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 

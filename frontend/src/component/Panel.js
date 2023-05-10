@@ -13,6 +13,7 @@ import Form from "react-bootstrap/Form";
 
 function Panel() {
     let movies = useSelector(state => state.movies);
+    let state = movies;
     const dispatch = useDispatch();
     const [word, setWord] = useState('');
     const [searchedWord, setSearchedWord] = useState([]);
@@ -38,12 +39,6 @@ function Panel() {
             return
         }
 
-
-        movies = movies.filter((movie) =>
-            movie.title.toLowerCase().includes(word.toLowerCase())
-        );
-
-        dispatch(filterState(movies));
 
         //setWord('');
         setMessage('')
@@ -86,12 +81,16 @@ function Panel() {
     return (
         <Container>
             <Row>
-                <Form onSubmit={handleSubmit}>
-                    <input type="text" value={word} onChange={handleChange} placeholder='Search...' />
-                    {invalid && <p className='errorMessage'>{message}</p>}
 
-                    <button type='submit'>Submit</button>
-                </Form>
+                <Form.Control
+                    type="search"
+                    placeholder="Search"
+                    className="me-2"
+                    aria-label="Search"
+                    value={word}
+                    onChange={handleChange}
+                />
+                {invalid && <p className='errorMessage'>{message}</p>}
             </Row>
             <Row>
                 <Col>
@@ -119,7 +118,10 @@ function Panel() {
             </tr>
             </thead>
             <tbody>
-            {movies.map(d => <TableComponent {...d}/>)}
+            {state.filter((movie) =>
+                movie.title.toLowerCase().includes(word.toLowerCase())
+            ).map(d => <TableComponent {...d}/>)}
+
             </tbody>
         </Table>
             </Row>
