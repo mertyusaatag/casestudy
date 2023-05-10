@@ -9,7 +9,7 @@ import axios from "axios";
 import React, {useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import MovieCard from "./MovieCard";
-import DetailPage from "./DetailPage";
+import DetailPage from "./Pagess/DetailPage";
 import {changeState} from "../store/panel";
 import {useDispatch} from "react-redux";
 
@@ -67,11 +67,6 @@ function NavbarComponent() {
                             <NavDropdown.Item >
                                 <Link to='/charts'>
                                     Charts
-                                </Link>
-                            </NavDropdown.Item>
-                            <NavDropdown.Item>
-                                <Link to='/addMovie'>
-                                    Add New Movie
                                 </Link>
                             </NavDropdown.Item>
 

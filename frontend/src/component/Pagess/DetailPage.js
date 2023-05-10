@@ -1,7 +1,7 @@
 
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import "../css/movie.css"
+import "../../css/movie.css"
 import {Link, useParams} from "react-router-dom";
 import {Card, Col, Row, Tab, Tabs} from "react-bootstrap";
 import Container from "react-bootstrap/Container";
@@ -52,7 +52,7 @@ export default function DetailPage() {
             </div>
 
             <Row>
-                <Col md="3" sm={12}>
+                <Col md="3" sm="12">
                     <Card style={{ width: '25rem', height: '38rem', marginBottom: '1rem' , boxShadow:"7px 5px 5px gray" }}>
                         <Card.Img variant="top" src={data.poster} style={{width:'100%',height:'100%'}}/>
                     </Card>

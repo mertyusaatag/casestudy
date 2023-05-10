@@ -32,6 +32,20 @@ export const fetchMovies = () => async (dispatch) => {
     }
 };
 
+
+export const fetchMovieByFilter = (type) => async (dispatch) => {
+    try {
+        const response = await  axios.get(`http://localhost:8080/movie/${type}`, {headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json;charset=UTF-8'
+            }});
+
+        dispatch(setMovies(response.data));
+    } catch (error) {
+        console.error(error);
+    }
+};
+
 export const changeStates = (data) =>  () => {
         changeState(data);
 
@@ -50,8 +64,8 @@ const moviesSlice = createSlice({
             return state
         },
         filterState : (state,action,filter) => {
-            state = action.payload;
-            return state;
+            console.log(state);
+            return state.filter(movie => movie.includes(filter));
         }
     },
 });
